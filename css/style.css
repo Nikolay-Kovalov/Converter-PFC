@@ -1,0 +1,173 @@
+/* body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(215, 82, 255, 0.7);
+} */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, rgba(215, 82, 255, 0.7), rgba(147, 51, 176, 0.7), rgba(99, 32, 120, 0.7))
+}
+
+.male {
+    background-color: #3279d1;
+    background: linear-gradient(to right, #3279d1, #245999, #1a4070);
+    color: white;
+}
+
+h1 {
+    width: 700px;
+    text-align: center;
+    margin: 48px auto 24px;
+}
+
+.container {
+    width: 1100px;
+    padding: 24px;
+    margin: 0 auto;
+}
+
+input {
+    position: relative;
+    width: 180px;
+    padding-left: 12px;
+    margin-top: 4px;
+    height: 48px;
+    height: 48px;
+    border-radius: 4px;
+    border: none;
+    font-size: 20px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* .show {
+    display: block;
+} */
+
+
+/* 
+label::after {
+    content: 'Enter a digit';
+    position: absolute;
+    top: 374px;
+    left: 336px;
+    font-size: 12px;
+    color: white;
+    
+} */
+
+.label.show .age::after {
+    content: 'Enter a digit';
+    position: absolute;
+    top: 374px;
+    left: 336px;
+    font-size: 12px;
+    color: white;
+}
+
+.select-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    height: 100px;
+}
+
+select {
+    width: 160px;
+    height: 48px;
+    padding: 4px 8px;
+    margin-top: 4px;
+    border: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+select.weight {
+    width: 190px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-direction: column;
+    border: 2px solid white;
+    padding: 32px 12px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 6px white;
+}
+
+button {
+    display: inline-block;
+    width: 200px;
+    padding: 8px 12px;
+    font-size: 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(239, 239, 87);
+}
+
+.title {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.errorAge,
+.errorAgeSec,
+.errorWeight,
+.errorWeightSec,
+.errorHeight,
+.errorHeightSec {
+    color: white;
+    margin-top: 4px;
+    display: none;
+}
+
+.invalid {
+    border: 2px solid red;
+}
+
+.valid {
+    border: 2px solid green;
+}
+
+.invalidAge {
+    border: 2px solid red;
+}
+
+.validAge {
+    border: 2px solid green;
+}
+
+input:focus {
+    outline: none;
+}
+
+.result-text {
+    display: flex;
+    font-size: 32px;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+.name {
+    font-size: 56px;
+}
+
+.result-inner-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+} */

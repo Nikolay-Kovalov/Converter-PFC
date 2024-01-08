@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Converter-PFC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <h1>
+        Calculate the norm of proteins, fats and carbohydrates per a day, in accordance to your sex, weight, age and activity
+    </h1>
+    <div class="container">
+        <form>
+            <div class="select-wrapper">
+                <label>
+            Choose your sex
+            <select name="sex">
+              <option value="Male">Male</option>
+              <option value="Female" selected>Female</option>
+            </select>
+          </label>
+                <div class="input-wrapper">
+                    <label for="age">Enter your age</label>
+                    <input type="text" name="age" class="age" id="age" />
+                    <div class="errorAge">Enter digits only</div>
+                    <div class="errorAgeSec">Field can't start from 0</div>
+                </div>
+                <div class="input-wrapper">
+                    <label for="weight">Enter your weight (kg)</label>
+                    <input type="text" name="weight" class="weight" id="weight" />
+                    <div class="errorWeight">Enter digits only</div>
+                    <div class="errorWeightSec">Field can't start from 0</div>
+                </div>
+                <div class="input-wrapper">
+                    <label for="height">Enter your height (cm) </label>
+                    <input type="text" name="height" class="height" id="height" />
+
+                    <div class="errorHeight">Enter digits only</div>
+                    <div class="errorHeightSec">Field can't start from 0</div>
+                </div>
+                <label>
+            Activity
+            <select name="activity">
+              <option value="1.2">No activity</option>
+              <option value="1.375">Weak activity</option>
+              <option value="1.55" selected>Normal activity</option>
+              <option value="1.7">Intence activity</option>
+              <option value="1.9">High intence activity</option>
+            </select>
+          </label>
+            </div>
+            <button class="disabled">Calculate</button>
+        </form>
+        <div class="result-wrapper"></div>
+    </div>
+
+    <script src="./main.js" type="module"></script>
+</body>
+
+</html>
