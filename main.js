@@ -1,11 +1,17 @@
 const form = document.forms[0];
 const container = document.querySelector('.container');
-const btn = document.querySelector('button');
+const btn = document.querySelector('.calc-btn');
 const resultWrapper = document.querySelector('.result-wrapper');
 const label = document.querySelector("label");
 const ageInput = document.getElementById('age');
 const weightInput = document.getElementById('weight');
 const heightInput = document.getElementById('height');
+const backdropp = document.querySelector('.backdrop');
+const modal = document.querySelector('.modal');
+const modalBtn = document.querySelector('.modal-btn');
+
+
+
 
 ageInput.addEventListener("input", onInputAgeChange);
 weightInput.addEventListener('input', onInputWeightChange);
@@ -13,6 +19,33 @@ heightInput.addEventListener('input', onInputHeightChange);
 
 form.addEventListener('submit', calculate);
 form.addEventListener('change', onSexChange);
+
+modalBtn.addEventListener('click', onModalClose);
+backdropp.addEventListener('click', onBackdropClick);
+
+function onBackdropClick(evt) {
+    if (evt.currentTarget === evt.target) {
+        onModalClose();
+    }
+}
+
+function onEscPress(evt) {
+    if (evt.code === "Escape") {
+        onModalClose();
+    }
+}
+
+function onModalClose() {
+    backdropp.classList.toggle('backdrop_open');
+    modal.classList.toggle('modal_open')
+    document.removeEventListener('keydown', onEscPress);
+}
+
+function showModal() {
+    backdropp.classList.toggle('backdrop_open');
+    modal.classList.toggle('modal_open')
+    document.addEventListener('keydown', onEscPress);
+}
 
 
 function onInputAgeChange(evt) {
@@ -80,11 +113,11 @@ function onSexChange(evt) {
         if (resultWrapper.innerHTML) {
             resultWrapper.innerHTML = "";
         }
-
-
         document.body.style.background = "linear-gradient(to right, #3279d1, #245999, #1a4070)"
         document.body.style.color = "white";
         btn.style.backgroundColor = "orange";
+        btn.style.color = "white";
+
         // resultWrapper.innerHTML = "";
 
     } else if (form.elements.sex.value === "Female") {
@@ -93,15 +126,12 @@ function onSexChange(evt) {
             resultWrapper.innerHTML = "";
         }
 
-
         document.body.style.background = "linear-gradient(to right, rgba(215, 82, 255, 0.7), rgba(147, 51, 176, 0.7), rgba(99, 32, 120, 0.7))";
         document.body.style.color = "black";
         btn.style.backgroundColor = " rgb(239, 239, 87)";
+        btn.style.color = "black";
         // resultWrapper.innerHTML = "";
     }
-
-
-
 }
 
 function calculate(evt) {
@@ -110,7 +140,7 @@ function calculate(evt) {
     const form = evt.currentTarget;
     const activeIndex = form.elements.activity.selectedIndex;
     const text = form.elements.activity[activeIndex].textContent;
-    console.log(text)
+
     const sex = form.elements.sex.value
     const age = Number(form.elements.age.value);
     const weight = Number(form.elements.weight.value);
@@ -118,10 +148,9 @@ function calculate(evt) {
     const activity = Number(form.elements.activity.value);
 
     if (age === 0 || weight === 0 || height === 0) {
-        console.log(age)
-        console.log(weight)
-        console.log(height)
-        alert("Age, weight or height can't be equal to 0 or empty field");
+
+        // alert("Age, weight or height can't be equal to 0 or empty field");
+        showModal();
 
         evt.currentTarget.elements.age.classList.remove('invalidAge');
         evt.currentTarget.elements.weight.classList.remove('invalidAge');
@@ -134,11 +163,10 @@ function calculate(evt) {
         return
     }
     if (isNaN(age) || isNaN(weight) || isNaN(height)) {
-        console.log(age)
-        console.log(weight)
-        console.log(height)
-            // form.reset();
-        alert("Age, weight or height should equal to digits");
+
+        // form.reset();
+        // alert("Age, weight or height should equal to digits");
+        showModal()
         evt.currentTarget.elements.age.classList.remove('invalid');
         evt.currentTarget.elements.weight.classList.remove('invalid');
         evt.currentTarget.elements.height.classList.remove('invalid');
@@ -188,7 +216,7 @@ function renderResult(sex, age, weight, height, text, ...rest) {
 
     const title = document.createElement('h2');
     title.classList.add('title');
-    title.innerText = `${sex} daily norm of calories, proteins, fats and carbohydrates (${age} years old, ${weight}kg and ${height}cm height) with ${text.toLowerCase()} is:`
+    title.innerHTML = `${sex} daily norm of calories, proteins, fats and carbohydrates <br> (${age} years old, ${weight} kg and ${height} cm height) <br> with ${text.toLowerCase()} is:`
 
     rest.forEach(item => {
         const result = document.createElement('p');

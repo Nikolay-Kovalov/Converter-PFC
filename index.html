@@ -12,14 +12,22 @@
 </head>
 
 <body>
+    <div class="backdrop">
+        <div class="modal">
+            <p class="modal-text">
+                Age, weight or height can't be equal to "0" or an empty field and should equal to digits
+            </p>
+            <button class="modal-btn">OK</button>
+        </div>
+    </div>
     <h1>
-        Calculate the norm of proteins, fats and carbohydrates per a day, in accordance to your sex, weight, age and activity
+        Calculate the norm of proteins, fats and carbohydrates per a day, in accordance to your gender, weight, age and activity
     </h1>
     <div class="container">
         <form>
             <div class="select-wrapper">
                 <label>
-            Choose your sex
+            Choose your gender
             <select name="sex">
               <option value="Male">Male</option>
               <option value="Female" selected>Female</option>
@@ -55,7 +63,7 @@
             </select>
           </label>
             </div>
-            <button class="disabled">Calculate</button>
+            <button class="calc-btn">CALCULATE</button>
         </form>
         <div class="result-wrapper"></div>
     </div>
