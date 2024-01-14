@@ -16,23 +16,31 @@ p {
 }
 
 h1 {
-    width: 700px;
+    width: 330px;
+    font-size: 24px;
     text-align: center;
-    margin: 48px auto 24px;
+    margin: 24px auto 24px;
+    display: none;
 }
 
 .container {
-    width: 1100px;
-    padding: 24px;
+    width: 340px;
+    padding: 8px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+
+
+
 }
 
 input {
     position: relative;
-    width: 180px;
+    width: 126px;
     padding-left: 12px;
     margin-top: 4px;
-    height: 48px;
     height: 48px;
     border-radius: 4px;
     border: none;
@@ -43,17 +51,21 @@ input {
 label {
     display: flex;
     flex-direction: column;
+    font-size: 12px;
+
 }
 
 .select-wrapper {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: flex-start;
     gap: 24px;
-    height: 100px;
+    height: 262px;
 }
 
 select {
-    width: 160px;
+    width: 126px;
     height: 48px;
     padding: 4px 8px;
     margin-top: 4px;
@@ -63,41 +75,68 @@ select {
     -webkit-appearance: none;
 }
 
-select.weight {
-    width: 190px;
-}
+/* .gender {
+    width: 420px;
+} */
+
+/* select.weight {
+    width: 240px;
+} */
 
 form {
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    margin-top: 12px;
+    width: 324px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 32px;
+    gap: 40px;
     flex-direction: column;
     border: 2px solid white;
-    padding: 32px 12px;
+    padding: 24px 12px;
     border-radius: 12px;
     box-shadow: 0px 0px 6px white;
 }
 
-.calc-btn {
+.calc-btn,
+.clear-btn {
     display: inline-block;
-    width: 200px;
+    width: 126px;
+    height: 48px;
     padding: 8px 12px;
-    font-size: 24px;
+    font-size: 12px;
     border: none;
     border-radius: 8px;
     background-color: rgb(239, 239, 87);
     transition: transform 0.4s ease;
 }
 
+.input-wrapper {
+    height: 70px;
+}
+
+.buttons-wrapper {
+    display: flex;
+    gap: 16px;
+
+}
+
+.clear-btn:hover,
 .calc-btn:hover {
     transform: scale(1.03);
 }
 
+.result-wrapper {
+    width: 324px;
+}
+
 .title {
+    font-weight: 400;
+    font-size: 20px;
     text-align: center;
-    margin-top: 24px;
-    margin-bottom: 36px;
+    margin-bottom: 24px;
+    margin-top: 0;
 }
 
 .errorAge,
@@ -109,6 +148,7 @@ form {
     color: white;
     margin-top: 4px;
     display: none;
+    font-size: 10px;
 }
 
 .invalid {
@@ -137,7 +177,7 @@ select:focus {
 
 .result-text {
     display: flex;
-    font-size: 32px;
+    font-size: 16px;
     flex-direction: column;
     gap: 8px;
     align-items: center;
@@ -145,12 +185,14 @@ select:focus {
 }
 
 .name {
-    font-size: 56px;
+    font-size: 28px;
     color: rgba(241, 238, 22, 0.982);
 }
 
 .result-inner-wrapper {
+
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -210,4 +252,372 @@ select:focus {
     display: flex;
     height: 100vh;
     overflow: hidden;
+}
+
+#female {
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+}
+
+#female::before {
+    content: 'Female';
+    top: 0;
+    left: 0;
+    width: 126px;
+    height: 48px;
+    border: 1px solid white;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+
+
+#female.checked::before {
+    background-color: rgb(111, 251, 111);
+    border: none;
+}
+
+#male {
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#male::before {
+    content: 'Male';
+    top: 0;
+    left: 0;
+    width: 126px;
+    height: 48px;
+    border: 1px solid white;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+#male.checked::before {
+    background-color: rgb(111, 251, 111);
+    border: none;
+
+}
+
+
+@media screen and (min-width: 1200px) {
+    body {
+        position: relative;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(to right, rgba(215, 82, 255, 0.7), rgba(147, 51, 176, 0.7), rgba(99, 32, 120, 0.7))
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .male {
+        background-color: #3279d1;
+        background: linear-gradient(to right, #3279d1, #245999, #1a4070);
+        color: white;
+    }
+
+    h1 {
+        display: block;
+        width: 700px;
+        text-align: center;
+        margin: 48px auto 24px;
+    }
+
+    .container {
+        width: 1100px;
+        padding: 24px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+
+    }
+
+    input {
+        position: relative;
+        width: 196px;
+        padding-left: 12px;
+        margin-top: 4px;
+        height: 48px;
+        height: 48px;
+        border-radius: 4px;
+        border: none;
+        font-size: 20px;
+        caret-color: black;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+
+    }
+
+    .select-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 24px;
+        height: 300px;
+    }
+
+    select {
+        width: 196px;
+        height: 48px;
+        padding: 4px 8px;
+        margin-top: 4px;
+        border: none;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+    }
+
+    .gender {
+        width: 420px;
+    }
+
+    /* select.weight {
+    width: 240px;
+} */
+
+    form {
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+        margin-top: 0;
+        width: 460px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 40px;
+        flex-direction: column;
+        border: 2px solid white;
+        padding: 24px 12px;
+        border-radius: 12px;
+        box-shadow: 0px 0px 6px white;
+    }
+
+    .calc-btn,
+    .clear-btn {
+        display: inline-block;
+        width: 196px;
+        padding: 8px 12px;
+        font-size: 24px;
+        border: none;
+        border-radius: 8px;
+        background-color: rgb(239, 239, 87);
+        transition: transform 0.4s ease;
+    }
+
+    .input-wrapper {
+        height: 70px;
+    }
+
+    .buttons-wrapper {
+        display: flex;
+        gap: 16px;
+
+    }
+
+    .clear-btn:hover,
+    .calc-btn:hover {
+        transform: scale(1.03);
+    }
+
+    .result-wrapper {
+        width: 540px;
+    }
+
+    .title {
+        font-weight: 400;
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 24px;
+        margin-top: 0;
+    }
+
+    .errorAge,
+    .errorAgeSec,
+    .errorWeight,
+    .errorWeightSec,
+    .errorHeight,
+    .errorHeightSec {
+        color: white;
+        margin-top: 4px;
+        display: none;
+        font-size: 12px;
+    }
+
+    .invalid {
+        border: 2px solid red;
+    }
+
+    .valid {
+        border: 2px solid green;
+    }
+
+    .invalidAge {
+        border: 2px solid red;
+    }
+
+    .validAge {
+        border: 2px solid green;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    select:focus {
+        outline: none;
+    }
+
+    .result-text {
+        display: flex;
+        font-size: 24px;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        color: rgb(244, 244, 244);
+    }
+
+    .name {
+        font-size: 36px;
+        color: rgba(241, 238, 22, 0.982);
+    }
+
+    .result-inner-wrapper {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .backdrop {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        display: none;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(0, 0, 0, 0.3);
+        z-index: 1;
+    }
+
+    .modal {
+        width: 380px;
+        height: 200px;
+        padding: 24px;
+        border-radius: 8px;
+        background-color: rgb(7, 98, 137);
+        box-shadow: 0px 0px 8px white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .modal-text {
+        text-align: center;
+        font-size: 24px;
+        color: white;
+    }
+
+    .modal-btn {
+        display: inline-block;
+        padding: 8px 12px;
+        font-size: 24px;
+        border: none;
+        border-radius: 8px;
+        width: 160px;
+        color: white;
+        background-color: rgb(230, 133, 14);
+        transition: transform 0.4s ease;
+    }
+
+    .modal-btn:hover {
+        transform: scale(1.04);
+    }
+
+    .backdrop_open {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    #female {
+        position: relative;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+    }
+
+    #female::before {
+        content: 'Female';
+        top: 0;
+        left: 0;
+        width: 196px;
+        height: 48px;
+        border: 1px solid white;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+    }
+
+
+
+    #female.checked::before {
+        background-color: rgb(111, 251, 111);
+        border: none;
+    }
+
+    #male {
+        position: relative;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    #male::before {
+        content: 'Male';
+        top: 0;
+        left: 0;
+        width: 196px;
+        height: 48px;
+        border: 1px solid white;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+    }
+
+    #male.checked::before {
+        background-color: rgb(111, 251, 111);
+        border: none;
+
+    }
 }

@@ -1,74 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Converter-PFC</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./css/style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="backdrop">
-        <div class="modal">
-            <p class="modal-text">
-                Age, weight or height can't be equal to "0" or an empty field and should equal to digits
-            </p>
-            <button class="modal-btn">OK</button>
-        </div>
+      <div class="modal">
+        <p class="modal-text">
+          Age, weight or height can't be equal to "0" or an empty field and
+          should equal to digits
+        </p>
+        <button class="modal-btn">OK</button>
+      </div>
     </div>
-    <h1>
-        Calculate the norm of proteins, fats and carbohydrates per a day, in accordance to your gender, weight, age and activity
-    </h1>
+    <h1>Calculate the norm of proteins, fats and carbohydrates per a day</h1>
     <div class="container">
-        <form>
-            <div class="select-wrapper">
-                <label>
+      <form>
+        <div class="select-wrapper">
+          <input
+            class="checked"
+            type="radio"
+            name="gender"
+            checked
+            value="female"
+            id="female"
+            data-id="female"
+          />
+          <input
+            type="radio"
+            name="gender"
+            value="male"
+            id="male"
+            data-id="male"
+          />
+          <!-- <label>
             Choose your gender
-            <select name="sex">
+            <select class="gender" name="sex">
               <option value="Male">Male</option>
               <option value="Female" selected>Female</option>
             </select>
-          </label>
-                <div class="input-wrapper">
-                    <label for="age">Enter your age</label>
-                    <input type="text" name="age" class="age" id="age" />
-                    <div class="errorAge">Enter digits only</div>
-                    <div class="errorAgeSec">Field can't start from 0</div>
-                </div>
-                <div class="input-wrapper">
-                    <label for="weight">Enter your weight (kg)</label>
-                    <input type="text" name="weight" class="weight" id="weight" />
-                    <div class="errorWeight">Enter digits only</div>
-                    <div class="errorWeightSec">Field can't start from 0</div>
-                </div>
-                <div class="input-wrapper">
-                    <label for="height">Enter your height (cm) </label>
-                    <input type="text" name="height" class="height" id="height" />
+          </label> -->
+          <div class="input-wrapper">
+            <label for="age">Enter your age</label>
+            <input type="text" name="age" class="age" id="age" />
+            <div class="errorAge">Enter digits only</div>
+            <div class="errorAgeSec">Field can't start from 0</div>
+          </div>
+          <div class="input-wrapper">
+            <label for="weight">Enter your weight (kg)</label>
+            <input type="text" name="weight" class="weight" id="weight" />
+            <div class="errorWeight">Enter digits only</div>
+            <div class="errorWeightSec">Field can't start from 0</div>
+          </div>
+          <div class="input-wrapper">
+            <label for="height">Enter your height (cm) </label>
+            <input type="text" name="height" class="height" id="height" />
 
-                    <div class="errorHeight">Enter digits only</div>
-                    <div class="errorHeightSec">Field can't start from 0</div>
-                </div>
-                <label>
-            Activity
-            <select name="activity">
-              <option value="1.2">No activity</option>
-              <option value="1.375">Weak activity</option>
-              <option value="1.55" selected>Normal activity</option>
-              <option value="1.7">Intence activity</option>
-              <option value="1.9">High intence activity</option>
-            </select>
-          </label>
-            </div>
-            <button class="calc-btn">CALCULATE</button>
-        </form>
-        <div class="result-wrapper"></div>
+            <div class="errorHeight">Enter digits only</div>
+            <div class="errorHeightSec">Field can't start from 0</div>
+          </div>
+          <div class="input-wrapper">
+            <label>
+              Activity
+              <select name="activity">
+                <option value="1.2">No activity</option>
+                <option value="1.375">Weak activity</option>
+                <option value="1.55" selected>Normal activity</option>
+                <option value="1.7">Intence activity</option>
+                <option value="1.9">High intence activity</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="buttons-wrapper">
+          <button class="calc-btn">CALCULATE</button>
+          <button type="button" class="clear-btn">CLEAR</button>
+        </div>
+      </form>
+      <div class="result-wrapper"></div>
     </div>
 
     <script src="./main.js" type="module"></script>
-</body>
-
+  </body>
 </html>
